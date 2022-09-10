@@ -20,7 +20,10 @@ ENV PATH=$CONDA_DIR/bin:$PATH
 # Install font for prompt matrix
 COPY /data/DejaVuSans.ttf /usr/share/fonts/truetype/
 
+COPY . /sd/
+
+RUN conda env create -f /sd/environment.yaml
+
 EXPOSE 7860
 
-COPY ./entrypoint.sh /sd/
 ENTRYPOINT /sd/entrypoint.sh
