@@ -26,8 +26,6 @@ COPY /data/DejaVuSans.ttf /usr/share/fonts/truetype/
 EXPOSE 7860 8501
 COPY . /sd/
 
-RUN conda env create -f /sd/environment.yaml
-
-EXPOSE 7860
+RUN /sd/build.sh
 
 ENTRYPOINT /sd/entrypoint.sh
